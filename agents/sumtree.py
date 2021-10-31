@@ -2,6 +2,7 @@ import numpy as np
 
 
 class SumTree(object):
+    """SumTree implementation based on the code in the following website: https://pylessons.com/CartPole-PER/"""
     # Here we initialize the tree with all nodes = 0, and initialize the data with all values = 0
     def __init__(self, capacity):
         # Number of leaf nodes (final nodes) that contains experiences
