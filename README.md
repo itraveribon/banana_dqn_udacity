@@ -30,6 +30,8 @@ Download the version corresponding to your operative system and place the uncomp
 repository:
 
 * Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
+* Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
+* Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
 * Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
 
 # Running the code
@@ -40,6 +42,10 @@ We prepared an evaluation script <code>evaluation.py</code> which trains and pro
 to the dueling DQN definition.
 * **Double Dueling DQN**: This implementation combines the advantages of the two previous ones.
 * **Prioritized Replay Experience DQN**: A simple DQN with prioritized replay experience instead of random replay.
+
+You should provide the banana executable path to the evaluation script like as follows:
+
+<code>python evaluation.py --banana_executable Banana_Windows_x86_64/Banana.exe</code>
 
 Executing the evaluation script will generate one folder under <code>data</data> for each of the above named models. 
 Additionally, a PDF named <code>dqn_scores.pdf</code> containing a plot of the scores achieved by each model will be 

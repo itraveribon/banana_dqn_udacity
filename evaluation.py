@@ -1,3 +1,4 @@
+import argparse
 import os.path
 import shutil
 
@@ -71,17 +72,16 @@ def dqn_training(env, n_episodes=1800, eps_start=1.0, eps_end=0.01, eps_decay=0.
     return scores
 
 
-def evaluation():
-    os_name = os.name
+def evaluation(environment_path: str):
+    """Evaluates five reinforcement learning models
 
-    if os_name == "nt":
-        environment_name = "Banana_Windows_x86_64/Banana.exe"
-    elif os_name == "posix":
-        environment_name = "Banana_Linux/Banana.x86_64"
-    else:
-        raise ValueError("OS not compatible")
+    Args:
+        environment_path: Path to the banana executable
 
-    env = UnityEnvironment(file_name=os.path.join(os.path.dirname(__file__), environment_name), no_graphics=True)
+    Returns:
+
+    """
+    env = UnityEnvironment(file_name=os.path.join(os.path.dirname(__file__), environment_path), no_graphics=True)
 
     scores_dqn = dqn_training(env)
 
@@ -108,7 +108,8 @@ def evaluation():
     plt.show()
 
 
-
-
 if __name__ == "__main__":
-    evaluation()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--banana_executable", help="Path to the banana environment executable")
+    args = parser.parse_args()
+    evaluation(args.banana_executable)
